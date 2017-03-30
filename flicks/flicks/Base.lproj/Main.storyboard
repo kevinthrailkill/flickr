@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fHx-Ku-png" id="6Bu-1b-nzl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IKX-Os-aku">
@@ -65,6 +65,11 @@
                                                 <constraint firstItem="IKX-Os-aku" firstAttribute="top" secondItem="6Bu-1b-nzl" secondAttribute="topMargin" id="ugE-UJ-k93"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieInfoText" destination="cMW-pr-hhh" id="qU9-9V-5AC"/>
+                                            <outlet property="moviePosterImageView" destination="IKX-Os-aku" id="hmO-BI-OGm"/>
+                                            <outlet property="movieTitle" destination="TOV-Az-glP" id="qUS-VK-TmM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -103,7 +108,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yCm-yZ-2xu" id="hYP-gn-Y2o">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L9l-zG-tKJ">
@@ -139,6 +144,11 @@
                                                 <constraint firstItem="yrp-uE-UUn" firstAttribute="trailing" secondItem="hYP-gn-Y2o" secondAttribute="trailingMargin" id="wIQ-sK-FUv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieInfoText" destination="yrp-uE-UUn" id="Z96-uo-Jjw"/>
+                                            <outlet property="moviePosterImageView" destination="L9l-zG-tKJ" id="ocm-VR-5YM"/>
+                                            <outlet property="movieTitle" destination="WwK-eG-Qpz" id="j5W-7d-Rrw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
