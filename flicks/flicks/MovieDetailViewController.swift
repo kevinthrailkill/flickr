@@ -15,11 +15,14 @@ class MovieDetailViewController: UIViewController {
     var movie : MovieDetail?
     var movieId: Int!
     
+    @IBOutlet weak var errorView: UIView!
+    
     @IBOutlet weak var moviePosterImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.errorView.isHidden = true
         KRProgressHUD.show(progressHUDStyle: .black, message: "Loading...")
         
         MovieDBNetworkService.getMovieFromDB(movieID: movieId) {
@@ -28,12 +31,15 @@ class MovieDetailViewController: UIViewController {
             KRProgressHUD.dismiss()
             
             if let mov = retMovie {
+                self.errorView.isHidden = true
                 self.movie = mov
                 print(self.movie!)
                 self.updateUI()
                 
             }else{
                 //error
+                self.errorView.isHidden = false
+                print("error")
             }
         }
     }
@@ -100,19 +106,6 @@ class MovieDetailViewController: UIViewController {
             failure: { (imageRequest, imageResponse, error) -> Void in
                 // do something for the failure condition
         })
-
-        
-        
-        
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
 
 }
