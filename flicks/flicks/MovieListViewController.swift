@@ -32,6 +32,8 @@ class MovieListViewController: UIViewController {
                 self.movieListTableView.reloadData()
             }else{
                 //error
+                print("error")
+                
             }
         }
         
@@ -56,6 +58,8 @@ class MovieListViewController: UIViewController {
                 refreshControl.endRefreshing()
             }else{
                 //error
+                print("error")
+                refreshControl.endRefreshing()
             }
         }
     }
@@ -96,7 +100,7 @@ extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
         let movieCell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
 
         movieCell.movieTitle.text = movie.title
-        movieCell.movieInfoText.text = movie.overview
+        movieCell.overviewLabel.text = movie.overview
         let imageRequest = URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(movie.posterPath)")!)
         
         movieCell.imageView?.setImageWith(
