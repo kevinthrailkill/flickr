@@ -31,9 +31,9 @@ struct MovieDetail : Unboxable {
     let title: String
     let posterPath: String
     let overview: String
-      let releaseDate: String
-      let runTime: Int
-      let popularity: Double
+    let releaseDate: String
+    let runTime: Int
+    let popularity: Double
     
     init(unboxer: Unboxer) throws {
         self.movieId = try unboxer.unbox(key: "id")

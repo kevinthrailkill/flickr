@@ -14,6 +14,14 @@ import UnboxedAlamofire
 
 class MovieDBNetworkService {
     
+    
+    
+    
+    /// Gets the list of movies from movie db
+    ///
+    /// - Parameters:
+    ///   - endpoint: the endpoint to hit. either top rated or now playing
+    ///   - completion: returns a array of basic movie objects to be displayed
     class func getMoviesFromDB(endpoint: MovieDBEndpoint, completion: @escaping ([MovieBasic]?) -> ()) {
         
         let apiKey = "59dca7909ec71fbb24062d5ac0b5554c"
@@ -34,6 +42,12 @@ class MovieDBNetworkService {
         }
     }
     
+    
+    /// Gets the movie details from movie db
+    ///
+    /// - Parameters:
+    ///   - movieID: the id of the movie to get
+    ///   - completion: returns a moviedetail object to be displayed
     class func getMovieFromDB(movieID: Int, completion: @escaping (MovieDetail?) -> ()) {
         
         let apiKey = "59dca7909ec71fbb24062d5ac0b5554c"
@@ -44,7 +58,6 @@ class MovieDBNetworkService {
             completion(movie)
             
         }
-        
     }
     
 }

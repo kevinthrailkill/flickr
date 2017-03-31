@@ -59,6 +59,22 @@ class TopRatedViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "DetailSegueTopRated" {
+            
+            let detailViewController = segue.destination
+                as! MovieDetailViewController
+            
+            let indexPath = topRatedTableView.indexPath(for: sender as! UITableViewCell)!
+            let movieID = movieFeed[indexPath.row].movieId
+            detailViewController.movieId = movieID
+        }
+    }
 
 
 }

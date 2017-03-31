@@ -70,6 +70,7 @@
                                             <outlet property="movieInfoText" destination="yrp-uE-UUn" id="Z96-uo-Jjw"/>
                                             <outlet property="moviePosterImageView" destination="L9l-zG-tKJ" id="ocm-VR-5YM"/>
                                             <outlet property="movieTitle" destination="WwK-eG-Qpz" id="j5W-7d-Rrw"/>
+                                            <segue destination="2Vc-Tb-Efw" kind="show" identifier="DetailSegueTopRated" id="zHP-Ep-Nmn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -156,6 +157,7 @@
                                             <outlet property="movieInfoText" destination="wWd-FW-1km" id="oM6-cM-dx2"/>
                                             <outlet property="moviePosterImageView" destination="PyE-vf-Qug" id="i7P-Hr-1P3"/>
                                             <outlet property="movieTitle" destination="Zmh-Kz-voj" id="5Fl-ek-k2b"/>
+                                            <segue destination="2Vc-Tb-Efw" kind="show" identifier="DetailSegueNowPlaying" id="ilm-dr-V8j"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -181,6 +183,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ie2-ms-hYh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1485.5072463768117" y="-321.19565217391306"/>
+        </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="b2R-Hp-Ixy">
+            <objects>
+                <viewController id="2Vc-Tb-Efw" customClass="MovieDetailViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Btq-ax-u3L"/>
+                        <viewControllerLayoutGuide type="bottom" id="jJk-C4-Uk1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uOU-Ym-qlt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKl-QX-AKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2386" y="2"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -240,4 +260,7 @@
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ilm-dr-V8j"/>
+    </inferredMetricsTieBreakers>
 </document>
