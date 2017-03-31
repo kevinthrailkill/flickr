@@ -187,7 +187,7 @@
         <!--Movie Detail View Controller-->
         <scene sceneID="b2R-Hp-Ixy">
             <objects>
-                <viewController id="2Vc-Tb-Efw" customClass="MovieDetailViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="2Vc-Tb-Efw" customClass="MovieDetailViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Btq-ax-u3L"/>
                         <viewControllerLayoutGuide type="bottom" id="jJk-C4-Uk1"/>
@@ -195,12 +195,26 @@
                     <view key="view" contentMode="scaleToFill" id="uOU-Ym-qlt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yBT-bd-1Ma">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yBT-bd-1Ma" firstAttribute="leading" secondItem="uOU-Ym-qlt" secondAttribute="leading" id="6FZ-x6-Qgc"/>
+                            <constraint firstAttribute="bottom" secondItem="yBT-bd-1Ma" secondAttribute="bottom" id="7X6-sL-Xuf"/>
+                            <constraint firstItem="yBT-bd-1Ma" firstAttribute="top" secondItem="Btq-ax-u3L" secondAttribute="bottom" id="8mF-z2-xvz"/>
+                            <constraint firstAttribute="trailing" secondItem="yBT-bd-1Ma" secondAttribute="trailing" id="Vtg-72-5UG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="moviePosterImageView" destination="yBT-bd-1Ma" id="BJa-u3-YNx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKl-QX-AKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="2"/>
+            <point key="canvasLocation" x="2385.507246376812" y="1.6304347826086958"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

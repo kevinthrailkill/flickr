@@ -71,6 +71,7 @@ class NowPlayingViewController: UIViewController {
                 let indexPath = nowPlayingTableView.indexPath(for: sender as! UITableViewCell)!
                 let movieID = movieFeed[indexPath.row].movieId
                 detailViewController.movieId = movieID
+
         }
     }
     
