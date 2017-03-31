@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,97 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Top Rated View Controller-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController id="8rJ-Kc-sve" customClass="TopRatedViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uue-aK-v4B">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopRatedCell" rowHeight="120" id="yCm-yZ-2xu" customClass="MovieCell" customModule="flicks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yCm-yZ-2xu" id="hYP-gn-Y2o">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L9l-zG-tKJ">
-                                                    <rect key="frame" x="8" y="8" width="83" height="103"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="83" id="Pk2-X4-qhg"/>
-                                                        <constraint firstAttribute="height" constant="103" id="bm7-aW-NiN"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwK-eG-Qpz">
-                                                    <rect key="frame" x="99" y="8" width="307" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Movie info will go here" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrp-uE-UUn">
-                                                    <rect key="frame" x="99" y="29" width="307" height="82"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="L9l-zG-tKJ" firstAttribute="top" secondItem="hYP-gn-Y2o" secondAttribute="topMargin" id="2ei-dd-kwp"/>
-                                                <constraint firstItem="yrp-uE-UUn" firstAttribute="leading" secondItem="L9l-zG-tKJ" secondAttribute="trailing" constant="8" id="QFF-jj-jBK"/>
-                                                <constraint firstItem="WwK-eG-Qpz" firstAttribute="leading" secondItem="L9l-zG-tKJ" secondAttribute="trailing" constant="8" id="X6P-L9-pVD"/>
-                                                <constraint firstItem="yrp-uE-UUn" firstAttribute="leading" secondItem="L9l-zG-tKJ" secondAttribute="trailing" constant="8" id="Zrx-JD-yhV"/>
-                                                <constraint firstItem="WwK-eG-Qpz" firstAttribute="trailing" secondItem="hYP-gn-Y2o" secondAttribute="trailingMargin" id="gIZ-UK-eg4"/>
-                                                <constraint firstItem="yrp-uE-UUn" firstAttribute="top" secondItem="WwK-eG-Qpz" secondAttribute="bottom" id="hXN-zd-FbA"/>
-                                                <constraint firstItem="WwK-eG-Qpz" firstAttribute="top" secondItem="hYP-gn-Y2o" secondAttribute="topMargin" id="jCo-5m-4HD"/>
-                                                <constraint firstItem="L9l-zG-tKJ" firstAttribute="leading" secondItem="hYP-gn-Y2o" secondAttribute="leadingMargin" id="mTK-bM-ATy"/>
-                                                <constraint firstItem="yrp-uE-UUn" firstAttribute="bottom" secondItem="hYP-gn-Y2o" secondAttribute="bottomMargin" id="qe6-dQ-mcR"/>
-                                                <constraint firstItem="yrp-uE-UUn" firstAttribute="trailing" secondItem="hYP-gn-Y2o" secondAttribute="trailingMargin" id="wIQ-sK-FUv"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="movieInfoText" destination="yrp-uE-UUn" id="Z96-uo-Jjw"/>
-                                            <outlet property="moviePosterImageView" destination="L9l-zG-tKJ" id="ocm-VR-5YM"/>
-                                            <outlet property="movieTitle" destination="WwK-eG-Qpz" id="j5W-7d-Rrw"/>
-                                            <segue destination="2Vc-Tb-Efw" kind="show" identifier="DetailSegueTopRated" id="zHP-Ep-Nmn"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="hP1-W8-xGG"/>
-                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="HdH-L0-iFi"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="uue-aK-v4B" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="3Y8-ww-6Ya"/>
-                            <constraint firstItem="uue-aK-v4B" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="K7W-47-na9"/>
-                            <constraint firstAttribute="bottom" secondItem="uue-aK-v4B" secondAttribute="bottom" id="g51-Vx-D0A"/>
-                            <constraint firstAttribute="trailing" secondItem="uue-aK-v4B" secondAttribute="trailing" id="v9V-6N-pKE"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="VOK-PJ-CBn"/>
-                    <connections>
-                        <outlet property="topRatedTableView" destination="uue-aK-v4B" id="SFL-JS-nmq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1486" y="359"/>
-        </scene>
-        <!--Now Playing View Controller-->
+        <!--Movie List View Controller-->
         <scene sceneID="z8l-TF-VVN">
             <objects>
-                <viewController id="nAJ-O8-QmZ" customClass="NowPlayingViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieListView" id="nAJ-O8-QmZ" customClass="MovieListViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nPZ-pn-gY1"/>
                         <viewControllerLayoutGuide type="bottom" id="7ub-TB-H47"/>
@@ -113,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NowPlayingCell" rowHeight="120" id="cSd-0e-amU" customClass="MovieCell" customModule="flicks" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="120" id="cSd-0e-amU" customClass="MovieCell" customModule="flicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cSd-0e-amU" id="Fm7-W2-C84">
@@ -157,7 +70,7 @@
                                             <outlet property="movieInfoText" destination="wWd-FW-1km" id="oM6-cM-dx2"/>
                                             <outlet property="moviePosterImageView" destination="PyE-vf-Qug" id="i7P-Hr-1P3"/>
                                             <outlet property="movieTitle" destination="Zmh-Kz-voj" id="5Fl-ek-k2b"/>
-                                            <segue destination="2Vc-Tb-Efw" kind="show" identifier="DetailSegueNowPlaying" id="ilm-dr-V8j"/>
+                                            <segue destination="2Vc-Tb-Efw" kind="show" identifier="DetailSegue" id="ilm-dr-V8j"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -177,7 +90,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YD1-xy-tjp"/>
                     <connections>
-                        <outlet property="nowPlayingTableView" destination="Wyt-nt-Axo" id="koB-11-jQG"/>
+                        <outlet property="movieListTableView" destination="Wyt-nt-Axo" id="RVH-Tw-42h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ie2-ms-hYh" sceneMemberID="firstResponder"/>
@@ -187,7 +100,7 @@
         <!--Movie Detail View Controller-->
         <scene sceneID="b2R-Hp-Ixy">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="2Vc-Tb-Efw" customClass="MovieDetailViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieDetailView" hidesBottomBarWhenPushed="YES" id="2Vc-Tb-Efw" customClass="MovieDetailViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Btq-ax-u3L"/>
                         <viewControllerLayoutGuide type="bottom" id="jJk-C4-Uk1"/>
@@ -214,31 +127,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKl-QX-AKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2385.507246376812" y="1.6304347826086958"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="yl2-sM-qoP">
-            <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
-                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="7TI-As-uzC" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="hG7-lS-bae" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-120" y="2"/>
+            <point key="canvasLocation" x="2270" y="-321"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="ahy-NE-WHE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7TI-As-uzC" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavController" automaticallyAdjustsScrollViewInsets="NO" id="7TI-As-uzC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Now Playing" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SWS-kp-aED">
@@ -254,27 +148,5 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="RRP-b0-baC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hG7-lS-bae" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="cPa-gy-q4n"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hAc-Tt-Ij5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="vnf-oZ-CxO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GWM-64-3UU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ilm-dr-V8j"/>
-    </inferredMetricsTieBreakers>
 </document>

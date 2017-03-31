@@ -1,5 +1,5 @@
 //
-//  TopRatedViewController.swift
+//  MovieListViewController.swift
 //  flicks
 //
 //  Created by Kevin Thrailkill on 3/30/17.
@@ -10,24 +10,26 @@ import UIKit
 import AFNetworking
 import KRProgressHUD
 
-class TopRatedViewController: UIViewController {
-
-    @IBOutlet weak var topRatedTableView: UITableView!
+class MovieListViewController: UIViewController {
+    
+    @IBOutlet weak var movieListTableView: UITableView!
+    
     var movieFeed : [MovieBasic] = []
+    var movieDBEndpoint: MovieDBEndpoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         KRProgressHUD.show(progressHUDStyle: .black, message: "Loading...")
         
-        MovieDBNetworkService.getMoviesFromDB(endpoint: .topRated) {
+        MovieDBNetworkService.getMoviesFromDB(endpoint: movieDBEndpoint) {
             feed in
             
             KRProgressHUD.dismiss()
             
             if let movies = feed {
                 self.movieFeed = movies
-                self.topRatedTableView.reloadData()
+                self.movieListTableView.reloadData()
             }else{
                 //error
             }
@@ -35,7 +37,8 @@ class TopRatedViewController: UIViewController {
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)) , for: .valueChanged)
-        topRatedTableView.insertSubview(refreshControl, at: 0)
+        // add refresh control to table view
+        movieListTableView.insertSubview(refreshControl, at: 0)
         
     }
     
@@ -43,48 +46,44 @@ class TopRatedViewController: UIViewController {
     // Updates the tableView with the new data
     // Hides the RefreshControl
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
-        
-        MovieDBNetworkService.getMoviesFromDB(endpoint: .topRated) {
+                
+        MovieDBNetworkService.getMoviesFromDB(endpoint: movieDBEndpoint) {
             feed in
             
             if let movies = feed {
                 self.movieFeed = movies
-                self.topRatedTableView.reloadData()
+                self.movieListTableView.reloadData()
                 refreshControl.endRefreshing()
             }else{
                 //error
             }
         }
-        
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "DetailSegueTopRated" {
+        if segue.identifier == "DetailSegue" {
             
-            let detailViewController = segue.destination
-                as! MovieDetailViewController
+                let detailViewController = segue.destination
+                    as! MovieDetailViewController
             
-            let indexPath = topRatedTableView.indexPath(for: sender as! UITableViewCell)!
-            let movieID = movieFeed[indexPath.row].movieId
-            detailViewController.movieId = movieID
+                let indexPath = movieListTableView.indexPath(for: sender as! UITableViewCell)!
+                let movieID = movieFeed[indexPath.row].movieId
+                detailViewController.movieId = movieID
+
         }
     }
-
-
+    
 }
 
-extension TopRatedViewController : UITableViewDataSource, UITableViewDelegate {
+extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieFeed.count
@@ -94,12 +93,10 @@ extension TopRatedViewController : UITableViewDataSource, UITableViewDelegate {
         
         let movie = movieFeed[indexPath.row]
         
-        let movieCell = tableView.dequeueReusableCell(withIdentifier: "TopRatedCell", for: indexPath) as! MovieCell
-        
+        let movieCell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+
         movieCell.movieTitle.text = movie.title
         movieCell.movieInfoText.text = movie.overview
-        
-        
         let imageRequest = URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(movie.posterPath)")!)
         
         movieCell.imageView?.setImageWith(
@@ -122,17 +119,16 @@ extension TopRatedViewController : UITableViewDataSource, UITableViewDelegate {
                 // do something for the failure condition
         })
         
-        
-        
         return movieCell
         
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated:true)
+        
     }
-
+    
 }
-
 

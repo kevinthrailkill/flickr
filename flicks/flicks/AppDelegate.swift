@@ -16,6 +16,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // Set up the first View Controller
+        let vc1 = storyboard.instantiateViewController(withIdentifier: "MainNavController") as! UINavigationController
+        let nowPlaying = vc1.viewControllers.first as! MovieListViewController
+        nowPlaying.movieDBEndpoint = MovieDBEndpoint.nowPlaying
+        vc1.tabBarItem.title = "Now Playing"
+        
+        // Set up the second View Controller
+        let vc2 = storyboard.instantiateViewController(withIdentifier: "MainNavController") as! UINavigationController
+        let topRated = vc2.viewControllers.first as! MovieListViewController
+        topRated.movieDBEndpoint = MovieDBEndpoint.topRated
+        vc2.tabBarItem.title = "Top Rated"
+        
+        // Set up the Tab Bar Controller to have two tabs
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [vc1, vc2]
+        
+        // Make the Tab Bar Controller the root view controller
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
+        
+        
         return true
     }
 
