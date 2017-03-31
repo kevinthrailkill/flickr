@@ -28,9 +28,38 @@ class TopRatedViewController: UIViewController {
             
         }
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)) , for: .valueChanged)
+        // add refresh control to table view
+        topRatedTableView.insertSubview(refreshControl, at: 0)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        
+        MovieDBNetworkService.getTopRated() {
+            feed in
+            
+            if let movies = feed {
+                self.movieFeed = movies
+                self.topRatedTableView.reloadData()
+                refreshControl.endRefreshing()
+            }else{
+                //error
+            }
+            
+        }
+        
+        
+    }
+    
+    
+
+    
 
 
     override func didReceiveMemoryWarning() {
@@ -75,4 +104,5 @@ extension TopRatedViewController : UITableViewDataSource, UITableViewDelegate {
     }
 
 }
+
 

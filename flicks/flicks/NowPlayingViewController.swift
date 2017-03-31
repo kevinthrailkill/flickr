@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireImage
 
 class NowPlayingViewController: UIViewController {
-
+    
     @IBOutlet weak var nowPlayingTableView: UITableView!
     
     var movieFeed : [MovieBasic] = []
@@ -28,19 +28,49 @@ class NowPlayingViewController: UIViewController {
             }else{
                 //error
             }
-            
         }
-
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)) , for: .valueChanged)
+        // add refresh control to table view
+        nowPlayingTableView.insertSubview(refreshControl, at: 0)
+        
+        
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        
+        
+        MovieDBNetworkService.getNowPlaying() {
+            feed in
+            
+            if let movies = feed {
+                self.movieFeed = movies
+                self.nowPlayingTableView.reloadData()
+                refreshControl.endRefreshing()
+            }else{
+                //error
+            }
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
 extension NowPlayingViewController : UITableViewDelegate, UITableViewDataSource {
@@ -74,8 +104,6 @@ extension NowPlayingViewController : UITableViewDelegate, UITableViewDataSource 
         tableView.deselectRow(at: indexPath, animated:true)
         
     }
-    
-    
     
 }
 
