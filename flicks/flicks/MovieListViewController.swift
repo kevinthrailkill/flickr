@@ -15,7 +15,11 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var movieListTableView: UITableView!
     
     var movieFeed : [MovieBasic] = []
+    var filteredMovieFeed : [MovieBasic] = []
+
     var movieDBEndpoint: MovieDBEndpoint!
+    let searchController = UISearchController(searchResultsController: nil)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,13 @@ class MovieListViewController: UIViewController {
         // add refresh control to table view
         movieListTableView.insertSubview(refreshControl, at: 0)
         
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        navigationItem.titleView = searchController.searchBar
+        
     }
     
     // Makes a network request to get updated data
@@ -64,6 +75,16 @@ class MovieListViewController: UIViewController {
         }
     }
     
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredMovieFeed = movieFeed.filter { movie in
+            return movie.title.lowercased().contains(searchText.lowercased())
+        }
+        
+        movieListTableView.reloadData()
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -79,8 +100,12 @@ class MovieListViewController: UIViewController {
                     as! MovieDetailViewController
             
                 let indexPath = movieListTableView.indexPath(for: sender as! UITableViewCell)!
-                let movieID = movieFeed[indexPath.row].movieId
-                detailViewController.movieId = movieID
+            
+                if searchController.isActive && searchController.searchBar.text != "" {
+                    detailViewController.movieId = filteredMovieFeed[indexPath.row].movieId
+                } else {
+                    detailViewController.movieId = movieFeed[indexPath.row].movieId
+                }
 
         }
     }
@@ -90,12 +115,23 @@ class MovieListViewController: UIViewController {
 extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredMovieFeed.count
+        }
+        
         return movieFeed.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let movie = movieFeed[indexPath.row]
+        var movie : MovieBasic
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            movie = filteredMovieFeed[indexPath.row]
+        } else {
+            movie = movieFeed[indexPath.row]
+        }
+        
         
         let movieCell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
 
@@ -132,6 +168,14 @@ extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated:true)
         
+    }
+    
+}
+
+extension MovieListViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
     
 }
