@@ -7,7 +7,42 @@
 //
 
 import Foundation
+import Unbox
 
-struct Movie {
+struct MovieBasic : Unboxable {
     
+    let movieId: Int
+    let title: String
+    let posterPath: String
+    let overview: String
+    
+    init(unboxer: Unboxer) throws {
+        self.movieId = try unboxer.unbox(key: "id")
+        self.title = try unboxer.unbox(key: "title")
+        self.posterPath = try unboxer.unbox(key: "poster_path")
+        self.overview = try unboxer.unbox(key: "overview")
+    }
+
+}
+
+struct MovieDetail : Unboxable {
+    
+    let movieId: Int
+    let title: String
+    let posterPath: String
+    let overview: String
+      let releaseDate: String
+      let runTime: Int
+      let popularity: Double
+    
+    init(unboxer: Unboxer) throws {
+        self.movieId = try unboxer.unbox(key: "id")
+        self.title = try unboxer.unbox(key: "title")
+        self.posterPath = try unboxer.unbox(key: "poster_path")
+        self.overview = try unboxer.unbox(key: "overview")
+        self.releaseDate = try unboxer.unbox(key: "release_date")
+        self.runTime = try unboxer.unbox(key: "runtime")
+        self.popularity = try unboxer.unbox(key: "popularity")
+    }
+
 }
