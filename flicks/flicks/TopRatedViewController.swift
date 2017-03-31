@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import KRProgressHUD
 
 class TopRatedViewController: UIViewController {
 
@@ -17,8 +18,12 @@ class TopRatedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        KRProgressHUD.show(progressHUDStyle: .black, message: "Loading...")
+        
         MovieDBNetworkService.getMoviesFromDB(endpoint: .topRated) {
             feed in
+            
+            KRProgressHUD.dismiss()
             
             if let movies = feed {
                 self.movieFeed = movies

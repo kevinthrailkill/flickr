@@ -10,4 +10,5 @@ target 'flicks' do
   pod 'UnboxedAlamofire'
   pod "Unbox"
   pod 'AFNetworking'
+  pod "KRProgressHUD"
 end

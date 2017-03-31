@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Alamofire (4.4.0)
+  - KRProgressHUD (2.2.0)
   - Unbox (2.4.0)
   - UnboxedAlamofire (2.0.3):
     - Alamofire (~> 4.1)
@@ -23,15 +24,17 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Alamofire
+  - KRProgressHUD
   - Unbox
   - UnboxedAlamofire
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  KRProgressHUD: 77aa376722c2593d8922317fa2c0a5470e79109f
   Unbox: c8b2ab69d3337597b4a3f47a0538807dc12db670
   UnboxedAlamofire: 3ecaf2a745aa018ba3497c0d61487b7338190ac6
 
-PODFILE CHECKSUM: ce96ef68e0a655988b603d70f0f10eebcc4e971f
+PODFILE CHECKSUM: 77201a0b0a493515029ba0eef58cec3fe8a51309
 
 COCOAPODS: 1.2.0

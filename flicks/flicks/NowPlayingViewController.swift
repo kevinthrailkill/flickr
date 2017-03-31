@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Alamofire
+import AFNetworking
+import KRProgressHUD
 
 class NowPlayingViewController: UIViewController {
     
@@ -18,8 +19,12 @@ class NowPlayingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        KRProgressHUD.show(progressHUDStyle: .black, message: "Loading...")
+        
         MovieDBNetworkService.getMoviesFromDB(endpoint: .nowPlaying) {
             feed in
+            
+            KRProgressHUD.dismiss()
             
             if let movies = feed {
                 self.movieFeed = movies
@@ -40,7 +45,7 @@ class NowPlayingViewController: UIViewController {
     // Updates the tableView with the new data
     // Hides the RefreshControl
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
-        
+                
         MovieDBNetworkService.getMoviesFromDB(endpoint: .nowPlaying) {
             feed in
             

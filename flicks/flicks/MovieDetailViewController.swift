@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class MovieDetailViewController: UIViewController {
 
@@ -19,9 +20,12 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        KRProgressHUD.show(progressHUDStyle: .black, message: "Loading...")
         
         MovieDBNetworkService.getMovieFromDB(movieID: movieId) {
             retMovie in
+            
+            KRProgressHUD.dismiss()
             
             if let mov = retMovie {
                 self.movie = mov
