@@ -9,5 +9,5 @@ target 'flicks' do
   pod 'Alamofire'
   pod 'UnboxedAlamofire'
   pod "Unbox"
-  pod 'AlamofireImage'
+  pod 'AFNetworking'
 end

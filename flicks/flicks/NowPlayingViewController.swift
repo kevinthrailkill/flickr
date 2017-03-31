@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import AlamofireImage
 
 class NowPlayingViewController: UIViewController {
     
@@ -19,7 +18,7 @@ class NowPlayingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        MovieDBNetworkService.getNowPlaying() {
+        MovieDBNetworkService.getMoviesFromDB(endpoint: .nowPlaying) {
             feed in
             
             if let movies = feed {
@@ -35,9 +34,6 @@ class NowPlayingViewController: UIViewController {
         // add refresh control to table view
         nowPlayingTableView.insertSubview(refreshControl, at: 0)
         
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     // Makes a network request to get updated data
@@ -45,8 +41,7 @@ class NowPlayingViewController: UIViewController {
     // Hides the RefreshControl
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         
-        
-        MovieDBNetworkService.getNowPlaying() {
+        MovieDBNetworkService.getMoviesFromDB(endpoint: .nowPlaying) {
             feed in
             
             if let movies = feed {
@@ -57,13 +52,7 @@ class NowPlayingViewController: UIViewController {
                 //error
             }
         }
-        
-        
     }
-    
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,15 +73,30 @@ extension NowPlayingViewController : UITableViewDelegate, UITableViewDataSource 
         let movie = movieFeed[indexPath.row]
         
         let movieCell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingCell", for: indexPath) as! MovieCell
-        
-        
+
         movieCell.movieTitle.text = movie.title
         movieCell.movieInfoText.text = movie.overview
+        let imageRequest = URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(movie.posterPath)")!)
         
-        
-        let url = URL(string: "https://image.tmdb.org/t/p/w342\(movie.posterPath)")!
-        movieCell.imageView?.af_setImage(withURL: url)
-        
+        movieCell.imageView?.setImageWith(
+            imageRequest,
+            placeholderImage: nil,
+            success: { (imageRequest, imageResponse, image) -> Void in
+                
+                // imageResponse will be nil if the image is cached
+                if imageResponse != nil {
+                    movieCell.imageView?.alpha = 0.0
+                    movieCell.imageView?.image = image
+                    UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                        movieCell.imageView?.alpha = 1.0
+                    })
+                } else {
+                    movieCell.imageView?.image = image
+                }
+        },
+            failure: { (imageRequest, imageResponse, error) -> Void in
+                // do something for the failure condition
+        })
         
         return movieCell
         

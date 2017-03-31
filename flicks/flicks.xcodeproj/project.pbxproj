@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00A20AF39A10BEBB8C37473C /* Pods_flicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B33599814C4DD9792F7F8174 /* Pods_flicks.framework */; };
 		192F223F1E8D887F00EFB8A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F223E1E8D887F00EFB8A9 /* AppDelegate.swift */; };
 		192F22411E8D887F00EFB8A9 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F22401E8D887F00EFB8A9 /* NowPlayingViewController.swift */; };
 		192F22431E8D887F00EFB8A9 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F22421E8D887F00EFB8A9 /* TopRatedViewController.swift */; };
@@ -17,6 +16,7 @@
 		192F22531E8D8A0700EFB8A9 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F22521E8D8A0700EFB8A9 /* MovieCell.swift */; };
 		192F22551E8D906600EFB8A9 /* MovieDBNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F22541E8D906600EFB8A9 /* MovieDBNetworkService.swift */; };
 		192F22571E8D907400EFB8A9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F22561E8D907400EFB8A9 /* Movie.swift */; };
+		36E5DBBFE41607E050D79313 /* Pods_flicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0592C901C8434DDED804F00 /* Pods_flicks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		192F22541E8D906600EFB8A9 /* MovieDBNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDBNetworkService.swift; sourceTree = "<group>"; };
 		192F22561E8D907400EFB8A9 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		72CF4B14A5434B966E96FA29 /* Pods-flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flicks/Pods-flicks.debug.xcconfig"; sourceTree = "<group>"; };
-		B33599814C4DD9792F7F8174 /* Pods_flicks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flicks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0592C901C8434DDED804F00 /* Pods_flicks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flicks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC0010EC948088E8157989CA /* Pods-flicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-flicks/Pods-flicks.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A20AF39A10BEBB8C37473C /* Pods_flicks.framework in Frameworks */,
+				36E5DBBFE41607E050D79313 /* Pods_flicks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +119,7 @@
 		A9D25F995CE0987A93357231 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B33599814C4DD9792F7F8174 /* Pods_flicks.framework */,
+				B0592C901C8434DDED804F00 /* Pods_flicks.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
