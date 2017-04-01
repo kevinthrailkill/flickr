@@ -98,6 +98,7 @@ class MovieDetailViewController: UIViewController {
                     
                 }, completion: { (sucess) -> Void in
                     
+                    self.errorView.isHidden = true
                     // The AFNetworking ImageView Category only allows one request to be sent at a time
                     // per ImageView. This code must be in the completion block.
                     self.moviePosterImageView.setImageWith(
@@ -105,12 +106,14 @@ class MovieDetailViewController: UIViewController {
                         placeholderImage: smallImage,
                         success: { (largeImageRequest, largeImageResponse, largeImage) -> Void in
                             
+                            self.errorView.isHidden = true
                             self.moviePosterImageView.image = largeImage;
                             
                     },
                         failure: { (request, response, error) -> Void in
                             // do something for the failure condition of the large image request
                             // possibly setting the ImageView's image to a default image
+                            self.errorView.isHidden = false
                     })
                 })
                 
@@ -118,6 +121,7 @@ class MovieDetailViewController: UIViewController {
         },
             failure: { (imageRequest, imageResponse, error) -> Void in
                 // do something for the failure condition
+                self.errorView.isHidden = false
         })
     }
 

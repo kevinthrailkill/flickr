@@ -25,9 +25,26 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wyt-nt-Axo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" hidden="YES" contentMode="scaleToFill" id="M52-LW-Ktc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJ5-Xj-iT0">
+                                            <rect key="frame" x="154" y="15" width="107" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.33333333329999998" alpha="0.86275692110000002" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="eJ5-Xj-iT0" firstAttribute="centerY" secondItem="M52-LW-Ktc" secondAttribute="centerY" id="8Tz-B5-qDA"/>
+                                        <constraint firstItem="eJ5-Xj-iT0" firstAttribute="centerX" secondItem="M52-LW-Ktc" secondAttribute="centerX" id="DaX-tF-GIV"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="120" id="cSd-0e-amU" customClass="MovieCell" customModule="flicks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="78" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cSd-0e-amU" id="Fm7-W2-C84">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
@@ -92,6 +109,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YD1-xy-tjp"/>
                     <connections>
+                        <outlet property="errorView" destination="M52-LW-Ktc" id="tPE-RO-oAN"/>
                         <outlet property="movieListTableView" destination="Wyt-nt-Axo" id="RVH-Tw-42h"/>
                     </connections>
                 </viewController>

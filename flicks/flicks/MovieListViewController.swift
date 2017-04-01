@@ -14,6 +14,8 @@ class MovieListViewController: UIViewController {
     
     @IBOutlet weak var movieListTableView: UITableView!
     
+    @IBOutlet weak var errorView: UIView!
+    
     var movieFeed : [MovieBasic] = []
     var filteredMovieFeed : [MovieBasic] = []
 
@@ -24,6 +26,8 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         KRProgressHUD.show(progressHUDStyle: .black, message: "Loading...")
         
         MovieDBNetworkService.getMoviesFromDB(endpoint: movieDBEndpoint) {
@@ -32,11 +36,15 @@ class MovieListViewController: UIViewController {
             KRProgressHUD.dismiss()
             
             if let movies = feed {
+                self.errorView.isHidden = true
+                
                 self.movieFeed = movies
                 self.movieListTableView.reloadData()
             }else{
                 //error
                 print("error")
+                self.errorView.isHidden = false
+
                 
             }
         }
@@ -63,7 +71,9 @@ class MovieListViewController: UIViewController {
     // Updates the tableView with the new data
     // Hides the RefreshControl
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
-                
+        
+        
+        
         MovieDBNetworkService.getMoviesFromDB(endpoint: movieDBEndpoint) {
             feed in
             
@@ -71,10 +81,14 @@ class MovieListViewController: UIViewController {
                 self.movieFeed = movies
                 self.movieListTableView.reloadData()
                 refreshControl.endRefreshing()
+                self.errorView.isHidden = true
+                
             }else{
                 //error
                 print("error")
                 refreshControl.endRefreshing()
+                self.errorView.isHidden = false
+                
             }
         }
     }
@@ -148,6 +162,8 @@ extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
             placeholderImage: nil,
             success: { (imageRequest, imageResponse, image) -> Void in
                 
+                self.errorView.isHidden = true
+                
                 // imageResponse will be nil if the image is cached
                 if imageResponse != nil {
                     movieCell.imageView?.alpha = 0.0
@@ -161,6 +177,7 @@ extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
         },
             failure: { (imageRequest, imageResponse, error) -> Void in
                 // do something for the failure condition
+                self.errorView.isHidden = false
         })
         
         return movieCell
