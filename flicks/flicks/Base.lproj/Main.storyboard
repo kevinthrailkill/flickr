@@ -25,26 +25,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wyt-nt-Axo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" id="M52-LW-Ktc">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJ5-Xj-iT0">
-                                            <rect key="frame" x="154" y="15" width="106" height="20"/>
-                                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.33333333329999998" alpha="0.86275692110000002" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstItem="eJ5-Xj-iT0" firstAttribute="centerY" secondItem="M52-LW-Ktc" secondAttribute="centerY" id="8Tz-B5-qDA"/>
-                                        <constraint firstItem="eJ5-Xj-iT0" firstAttribute="centerX" secondItem="M52-LW-Ktc" secondAttribute="centerX" id="DaX-tF-GIV"/>
-                                    </constraints>
-                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="120" id="cSd-0e-amU" customClass="MovieCell" customModule="flicks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="78" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cSd-0e-amU" id="Fm7-W2-C84">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
@@ -98,12 +81,32 @@
                                     <outlet property="delegate" destination="nAJ-O8-QmZ" id="Dbk-1Z-938"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M52-LW-Ktc">
+                                <rect key="frame" x="0.0" y="64" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJ5-Xj-iT0">
+                                        <rect key="frame" x="154" y="15" width="106" height="20"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.86275692110000002" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eJ5-Xj-iT0" firstAttribute="centerX" secondItem="M52-LW-Ktc" secondAttribute="centerX" id="6l2-zQ-DQ5"/>
+                                    <constraint firstAttribute="height" constant="50" id="Jxz-td-Nhx"/>
+                                    <constraint firstItem="eJ5-Xj-iT0" firstAttribute="centerY" secondItem="M52-LW-Ktc" secondAttribute="centerY" id="aHK-vz-kSQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Wyt-nt-Axo" secondAttribute="bottom" id="Pxb-tr-vWg"/>
                             <constraint firstAttribute="trailing" secondItem="Wyt-nt-Axo" secondAttribute="trailing" id="RAe-Sm-aNh"/>
                             <constraint firstItem="Wyt-nt-Axo" firstAttribute="leading" secondItem="LKa-Kl-rPv" secondAttribute="leading" id="VtG-UA-B4e"/>
+                            <constraint firstAttribute="trailing" secondItem="M52-LW-Ktc" secondAttribute="trailing" id="ZdA-Ln-kbl"/>
+                            <constraint firstItem="M52-LW-Ktc" firstAttribute="leading" secondItem="LKa-Kl-rPv" secondAttribute="leading" id="kYT-Rp-Huc"/>
+                            <constraint firstItem="M52-LW-Ktc" firstAttribute="top" secondItem="nPZ-pn-gY1" secondAttribute="bottom" id="nNS-9y-qp1"/>
                             <constraint firstItem="Wyt-nt-Axo" firstAttribute="top" secondItem="LKa-Kl-rPv" secondAttribute="top" id="qyE-5X-bFq"/>
                         </constraints>
                     </view>

@@ -49,6 +49,8 @@ class MovieListViewController: UIViewController {
             }
         }
         
+        
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)) , for: .valueChanged)
         // add refresh control to table view
@@ -71,6 +73,7 @@ class MovieListViewController: UIViewController {
         navigationItem.titleView = searchController.searchBar
         
     }
+    
     
     // Makes a network request to get updated data
     // Updates the tableView with the new data
