@@ -20,21 +20,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        UITabBar.appearance().tintColor = UIColor(red: 0, green: 0.263, blue: 0.337, alpha: 1.0)
+        
         // Set up the first View Controller
         let vc1 = storyboard.instantiateViewController(withIdentifier: "MainNavController") as! UINavigationController
         let nowPlaying = vc1.viewControllers.first as! MovieListViewController
         nowPlaying.movieDBEndpoint = MovieDBEndpoint.nowPlaying
         vc1.tabBarItem.title = "Now Playing"
+        vc1.tabBarItem.image = #imageLiteral(resourceName: "mov")
+        
         
         // Set up the second View Controller
         let vc2 = storyboard.instantiateViewController(withIdentifier: "MainNavController") as! UINavigationController
         let topRated = vc2.viewControllers.first as! MovieListViewController
         topRated.movieDBEndpoint = MovieDBEndpoint.topRated
         vc2.tabBarItem.title = "Top Rated"
+        vc2.tabBarItem.image = #imageLiteral(resourceName: "star")
+
         
         // Set up the Tab Bar Controller to have two tabs
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [vc1, vc2]
+        tabBarController.tabBar.barTintColor = UIColor(red: 0, green: 0.741, blue: 0.949, alpha: 1.0)
+        tabBarController.tabBar.unselectedItemTintColor = UIColor.darkGray
         
         // Make the Tab Bar Controller the root view controller
         window?.rootViewController = tabBarController

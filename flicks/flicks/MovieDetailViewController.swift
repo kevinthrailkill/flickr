@@ -16,6 +16,12 @@ class MovieDetailViewController: UIViewController {
     var movieId: Int!
     
     @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var detailSlideUp: UIView!
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
     
     @IBOutlet weak var moviePosterImageView: UIImageView!
     
@@ -51,13 +57,20 @@ class MovieDetailViewController: UIViewController {
     
     func updateUI(){
         
-        
-        
         getImageForBackground()
-        
-        
-        
-        
+        setLabels()
+        detailSlideUp.sizeToFit()
+        detailSlideUp.layer.cornerRadius = 10
+
+    }
+    
+    func setLabels() {
+        movieTitleLabel.text = movie!.title
+        releaseDateLabel.text = movie!.releaseDate
+      //  popularityLabel.text = movie!.popularity.description
+        timeLabel.text = movie!.runTime.description
+        overviewLabel.text = movie!.overview
+        overviewLabel.sizeToFit()
         
     }
     
