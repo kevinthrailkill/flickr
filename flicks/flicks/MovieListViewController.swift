@@ -50,6 +50,10 @@ class MovieListViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.barTintColor = UIColor.clear
+        searchController.searchBar.backgroundColor = UIColor.clear
+        searchController.searchBar.barStyle = .blackTranslucent
+
         definesPresentationContext = true
         navigationItem.titleView = searchController.searchBar
         
