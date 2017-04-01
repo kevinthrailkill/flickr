@@ -67,7 +67,7 @@ class MovieDetailViewController: UIViewController {
     func setLabels() {
         movieTitleLabel.text = movie!.title
         releaseDateLabel.text = movie!.releaseDate
-        popularityLabel.text = movie!.popularity.description
+      //  popularityLabel.text = movie!.popularity.description
         timeLabel.text = movie!.runTime.description
         overviewLabel.text = movie!.overview
         overviewLabel.sizeToFit()
