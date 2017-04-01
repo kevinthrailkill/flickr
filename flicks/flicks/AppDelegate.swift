@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [vc1, vc2]
         tabBarController.tabBar.barTintColor = UIColor(red: 0, green: 0.741, blue: 0.949, alpha: 1.0)
-        tabBarController.tabBar.unselectedItemTintColor = UIColor.white
+        tabBarController.tabBar.unselectedItemTintColor = UIColor.darkGray
         
         // Make the Tab Bar Controller the root view controller
         window?.rootViewController = tabBarController
