@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nowPlaying.movieDBEndpoint = MovieDBEndpoint.nowPlaying
         vc1.tabBarItem.title = "Now Playing"
         vc1.tabBarItem.image = #imageLiteral(resourceName: "mov")
-        
+        vc1.tabBarItem.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Gill Sans", size: 10.0)! ], for: .normal)
         
         // Set up the second View Controller
         let vc2 = storyboard.instantiateViewController(withIdentifier: "MainNavController") as! UINavigationController
@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         topRated.movieDBEndpoint = MovieDBEndpoint.topRated
         vc2.tabBarItem.title = "Top Rated"
         vc2.tabBarItem.image = #imageLiteral(resourceName: "star")
+        vc2.tabBarItem.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Gill Sans", size: 10.0)! ], for: .normal)
 
         
         // Set up the Tab Bar Controller to have two tabs

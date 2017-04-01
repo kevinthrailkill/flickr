@@ -61,6 +61,7 @@ class MovieListViewController: UIViewController {
         searchController.searchBar.barTintColor = UIColor.clear
         searchController.searchBar.backgroundColor = UIColor.clear
         searchController.searchBar.barStyle = .blackTranslucent
+        
 
         definesPresentationContext = true
         navigationItem.titleView = searchController.searchBar

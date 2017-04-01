@@ -66,14 +66,43 @@ class MovieDetailViewController: UIViewController {
     
     func setLabels() {
         movieTitleLabel.text = movie!.title
-        releaseDateLabel.text = movie!.releaseDate
+        releaseDateLabel.text = formattedDate(dateString: movie!.releaseDate)
       //  popularityLabel.text = movie!.popularity.description
-        timeLabel.text = movie!.runTime.description
+        timeLabel.text = formattedTime(time: movie!.runTime)
         overviewLabel.text = movie!.overview
         overviewLabel.sizeToFit()
         
+        
     }
     
+    
+    /// Converts the Release Date to a more readible format
+    ///
+    /// - Returns: Formatted Date String
+    func formattedDate(dateString: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: dateString)
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        let timeStamp = dateFormatter.string(from: date!)
+        
+        return timeStamp
+        
+    }
+    
+    
+    /// Returns the formmated time string for the length of the movie
+    ///
+    /// - Parameter time time in minutes
+    /// - Returns: time in hours and minutes
+    func formattedTime(time: Int) -> String {
+        return "\(time/60)hr \(time % 60)min"
+    }
+    
+    
+    
+    /// Gets the Background image of the page
     func getImageForBackground(){
         
 

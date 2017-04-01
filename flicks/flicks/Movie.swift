@@ -22,6 +22,7 @@ struct MovieBasic : Unboxable {
         self.posterPath = try unboxer.unbox(key: "poster_path")
         self.overview = try unboxer.unbox(key: "overview")
     }
+    
 
 }
 
@@ -43,6 +44,6 @@ struct MovieDetail : Unboxable {
         self.releaseDate = try unboxer.unbox(key: "release_date")
         self.runTime = try unboxer.unbox(key: "runtime")
         self.popularity = try unboxer.unbox(key: "popularity")
+        
     }
-
 }
