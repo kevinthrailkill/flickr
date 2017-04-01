@@ -59,6 +59,8 @@ class MovieDetailViewController: UIViewController {
         
         getImageForBackground()
         setLabels()
+        detailSlideUp.sizeToFit()
+        detailSlideUp.layer.cornerRadius = 10
 
     }
     
@@ -68,6 +70,8 @@ class MovieDetailViewController: UIViewController {
         popularityLabel.text = movie!.popularity.description
         timeLabel.text = movie!.runTime.description
         overviewLabel.text = movie!.overview
+        overviewLabel.sizeToFit()
+        
     }
     
     func getImageForBackground(){
