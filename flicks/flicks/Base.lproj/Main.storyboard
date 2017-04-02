@@ -34,20 +34,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyE-vf-Qug">
-                                                    <rect key="frame" x="8" y="12" width="83" height="93"/>
+                                                    <rect key="frame" x="8" y="8" width="83" height="103"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="93" id="7nj-Od-dhs"/>
-                                                        <constraint firstAttribute="width" constant="83" id="AMS-Gj-c1Y"/>
+                                                        <constraint firstAttribute="height" constant="103" id="Wt3-YG-nUo"/>
+                                                        <constraint firstAttribute="width" constant="83" id="r04-7u-xZk"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmh-Kz-voj">
-                                                    <rect key="frame" x="101" y="8" width="305" height="28"/>
+                                                    <rect key="frame" x="99" y="8" width="307" height="24"/>
                                                     <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuT-zk-84u">
-                                                    <rect key="frame" x="104" y="44" width="298" height="67"/>
+                                                    <rect key="frame" x="99" y="44" width="307" height="67"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="67" id="q3M-IS-bPr"/>
                                                     </constraints>
@@ -57,15 +57,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PyE-vf-Qug" firstAttribute="leading" secondItem="Fm7-W2-C84" secondAttribute="leadingMargin" id="Gxg-QG-XDV"/>
-                                                <constraint firstItem="PyE-vf-Qug" firstAttribute="top" secondItem="Fm7-W2-C84" secondAttribute="topMargin" constant="4" id="HLs-eM-Vvv"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="zuT-zk-84u" secondAttribute="bottom" constant="0.5" id="MNg-W5-4Yi"/>
-                                                <constraint firstItem="zuT-zk-84u" firstAttribute="trailing" secondItem="Fm7-W2-C84" secondAttribute="trailingMargin" constant="-4" id="R32-ft-oqA"/>
-                                                <constraint firstItem="Zmh-Kz-voj" firstAttribute="trailing" secondItem="Fm7-W2-C84" secondAttribute="trailingMargin" id="aPZ-QY-CYW"/>
-                                                <constraint firstItem="zuT-zk-84u" firstAttribute="leading" secondItem="PyE-vf-Qug" secondAttribute="trailing" constant="13" id="j1l-Lt-oRm"/>
-                                                <constraint firstItem="Zmh-Kz-voj" firstAttribute="top" secondItem="Fm7-W2-C84" secondAttribute="topMargin" id="pk1-QR-M2C"/>
-                                                <constraint firstItem="zuT-zk-84u" firstAttribute="top" secondItem="Zmh-Kz-voj" secondAttribute="bottom" constant="8" id="uc9-b7-au2"/>
-                                                <constraint firstItem="Zmh-Kz-voj" firstAttribute="leading" secondItem="PyE-vf-Qug" secondAttribute="trailing" constant="10" id="vyd-Ag-gGl"/>
+                                                <constraint firstItem="PyE-vf-Qug" firstAttribute="leading" secondItem="Fm7-W2-C84" secondAttribute="leading" constant="8" id="9h4-dY-wlE"/>
+                                                <constraint firstItem="Zmh-Kz-voj" firstAttribute="leading" secondItem="PyE-vf-Qug" secondAttribute="trailing" constant="8" id="CK8-op-L16"/>
+                                                <constraint firstItem="Zmh-Kz-voj" firstAttribute="top" secondItem="Fm7-W2-C84" secondAttribute="top" constant="8" id="GIV-7x-dB8"/>
+                                                <constraint firstAttribute="trailing" secondItem="zuT-zk-84u" secondAttribute="trailing" constant="8" id="Lmw-Cc-A0V"/>
+                                                <constraint firstAttribute="bottom" secondItem="PyE-vf-Qug" secondAttribute="bottom" constant="8" id="RjY-ss-8TE"/>
+                                                <constraint firstItem="PyE-vf-Qug" firstAttribute="top" secondItem="Fm7-W2-C84" secondAttribute="top" constant="8" id="fIo-X3-7MS"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zmh-Kz-voj" secondAttribute="trailing" constant="8" id="hNd-Ni-3ch"/>
+                                                <constraint firstItem="zuT-zk-84u" firstAttribute="leading" secondItem="PyE-vf-Qug" secondAttribute="trailing" constant="8" id="jbG-Bz-JcX"/>
+                                                <constraint firstItem="zuT-zk-84u" firstAttribute="top" secondItem="Zmh-Kz-voj" secondAttribute="bottom" constant="12" id="rmI-dk-4kC"/>
+                                                <constraint firstAttribute="bottom" secondItem="zuT-zk-84u" secondAttribute="bottom" constant="8" id="tV5-1g-PnF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
