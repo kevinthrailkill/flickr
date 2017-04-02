@@ -155,9 +155,6 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="247" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsS-ue-1Q9">
                                                         <rect key="frame" x="8" y="92" width="338" height="77"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="76" id="9CS-fm-O9k"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -181,7 +178,6 @@
                                                     <constraint firstItem="iIu-Bs-hcQ" firstAttribute="trailing" secondItem="qVU-L8-Co4" secondAttribute="trailing" id="E4S-70-8bQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="qVU-L8-Co4" secondAttribute="trailing" constant="8" id="OZH-1y-CbP"/>
                                                     <constraint firstItem="Z0c-uQ-oRh" firstAttribute="top" secondItem="iIu-Bs-hcQ" secondAttribute="bottom" constant="9" id="PXY-Fx-8Dp"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="179" id="SbH-bH-ogP"/>
                                                     <constraint firstItem="JsS-ue-1Q9" firstAttribute="leading" secondItem="Z0c-uQ-oRh" secondAttribute="leading" id="T64-GI-eJK"/>
                                                     <constraint firstItem="Z0c-uQ-oRh" firstAttribute="baseline" secondItem="qVU-L8-Co4" secondAttribute="baseline" id="U21-VQ-aKB"/>
                                                     <constraint firstItem="JsS-ue-1Q9" firstAttribute="trailing" secondItem="iIu-Bs-hcQ" secondAttribute="trailing" id="VYs-25-LBm"/>
