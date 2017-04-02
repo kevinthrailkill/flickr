@@ -163,30 +163,34 @@ extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
 
         movieCell.movieTitle.text = movie.title
         movieCell.overviewLabel.text = movie.overview
-        let imageRequest = URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(movie.posterPath)")!)
         
-        movieCell.imageView?.setImageWith(
-            imageRequest,
-            placeholderImage: nil,
-            success: { (imageRequest, imageResponse, image) -> Void in
-                
-                self.errorView.isHidden = true
-                
-                // imageResponse will be nil if the image is cached
-                if imageResponse != nil {
-                    movieCell.imageView?.alpha = 0.0
-                    movieCell.imageView?.image = image
-                    UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                        movieCell.imageView?.alpha = 1.0
-                    })
-                } else {
-                    movieCell.imageView?.image = image
-                }
-        },
-            failure: { (imageRequest, imageResponse, error) -> Void in
-                // do something for the failure condition
-                self.errorView.isHidden = false
-        })
+        if let path = movie.posterPath {
+        
+            let imageRequest = URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(path)")!)
+            
+            movieCell.imageView?.setImageWith(
+                imageRequest,
+                placeholderImage: nil,
+                success: { (imageRequest, imageResponse, image) -> Void in
+                    
+                    self.errorView.isHidden = true
+                    
+                    // imageResponse will be nil if the image is cached
+                    if imageResponse != nil {
+                        movieCell.imageView?.alpha = 0.0
+                        movieCell.imageView?.image = image
+                        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                            movieCell.imageView?.alpha = 1.0
+                        })
+                    } else {
+                        movieCell.imageView?.image = image
+                    }
+            },
+                failure: { (imageRequest, imageResponse, error) -> Void in
+                    // do something for the failure condition
+                    self.errorView.isHidden = false
+            })
+        }
         
         return movieCell
         

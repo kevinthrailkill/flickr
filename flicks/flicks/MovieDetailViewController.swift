@@ -57,7 +57,9 @@ class MovieDetailViewController: UIViewController {
     
     func updateUI(){
         
-        getImageForBackground()
+        if let _ = movie?.posterPath {
+            getImageForBackground()
+        }
         setLabels()
         detailSlideUp.sizeToFit()
         detailSlideUp.layer.cornerRadius = 10
@@ -104,6 +106,9 @@ class MovieDetailViewController: UIViewController {
     
     /// Gets the Background image of the page
     func getImageForBackground(){
+        
+        
+        
         
 
         let smallImageRequest = URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w45\(movie!.posterPath)")!)
