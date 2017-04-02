@@ -33,7 +33,7 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 
-<img src='http://i.imgur.com/GDw99sd.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/u6SUoUz.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <img src='http://i.imgur.com/jMLlr5g.gif' title='Video Walkthrough Network Error' width='' alt='Video Walkthrough Network Error' />
 
